@@ -26,15 +26,3 @@ int	push(t_stack **stack, t_stack *node)
 	}
 	return (0);
 }
-
-void	swap(t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (!*stack)
-		return ;
-	temp = (*stack)->next;
-	(*stack)->next = (*stack)->next->next;
-	temp->next = *stack;
-	*stack = temp;
-}

@@ -26,9 +26,9 @@ t_stack	*ft_lst_new(int numb);
 int		calculate_elements(char **arr);
 int		valid_number(char *arr);
 int		is_number(char *arr);
+void	stack_pos(t_stack *stack);
 
 int     push(t_stack **stack, t_stack *node);
-void	swap(t_stack **stack);
 void    sa(t_stack **stack_a);
 void    sb(t_stack **stack_b);
 void    ss(t_stack **stack_a, t_stack **stack_b);

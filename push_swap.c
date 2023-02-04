@@ -241,24 +241,31 @@ int	check_if_sorted(t_stack *stack)
 	return (0);
 }
 
+t_stack	*find_biggest_node(t_stack *stack)
+{
+	t_stack	*biggest;
+	
+	biggest = stack;
+	while (stack != NULL)
+	{
+		if (stack->rank == 0)
+		{	
+			if (stack->data > biggest->data || biggest->rank != 0)
+				biggest = stack;
+		}
+		stack = stack->next;
+	}
+	return (biggest);
+}
+
 void	rank_elements(t_stack *stack, int size)
 {
-	t_stack	*temp;
-	t_stack	*rank;
-
+	t_stack	*biggest;
+	
 	while (size > 0)
 	{
-		temp = stack;
-		rank = stack;
-		while (temp->next != NULL)
-		{
-			if (rank->data < temp->next->data && temp->rank == 0)
-			{	
-				rank = temp->next;
-			}
-			temp = temp->next;
-		}
-		rank->rank = size--;
+		biggest = find_biggest_node(stack);
+		biggest->rank = size--;
 	}
 }
 
@@ -273,6 +280,30 @@ void	print_stack(t_stack *stack)
 	printf("******************************************\n");
 }
 
+void	sort_stack(t_stack **a, t_stack **b)
+{
+	int	i = 1;
+
+	while (*a != NULL)
+	{
+		if ((*a)->rank != i)
+			ra(a);
+		else
+		{
+			i++;
+			pb(b, a);
+		}
+	}
+}
+
+void	sort_a(t_stack **a, t_stack **b)
+{
+	while (*b)
+	{
+		pa(a, b);
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -283,17 +314,14 @@ int	main(int ac, char **av)
 	b = NULL;
 	stack_size = 0;
 	parse_args(ac, av, &a, &stack_size);
-	stack_pos(a);
 	if (check_if_sorted(a) == 0)
 		printf("stack is already sorted!\n");
-	//rank_elements(a, stack_size);
+	stack_pos(a);
+	printf("stack size == %d\n", stack_size);
+	rank_elements(a, stack_size);
 	print_stack(a);
-	print_stack(b);
-	//sa(&a);
-	pb(&b, &a);
-	pb(&b, &a);
-	//ss(&a, &b);
+	sort_stack(&a, &b);
+	sort_a(&a, &b);
 	print_stack(a);
-	print_stack(b);
 	return (0);
 }

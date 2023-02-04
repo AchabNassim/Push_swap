@@ -14,21 +14,35 @@
 
 void	sa(t_stack **stack_a)
 {
-	swap(stack_a);
-	ft_putstr_fd("sa", 2);
+	t_stack	*temp;
+
+	if (!*stack_a)
+		return ;
+	temp = (*stack_a)->next;
+	(*stack_a)->next = (*stack_a)->next->next;
+	temp->next = *stack_a;
+	*stack_a = temp;
+	stack_pos(*stack_a);
 }
 
 void	sb(t_stack **stack_b)
 {
-	swap(stack_b);
-	ft_putstr_fd("sb", 2);
+	t_stack	*temp;
+
+	if (!*stack_b)
+		return ;
+	temp = (*stack_b)->next;
+	(*stack_b)->next = (*stack_b)->next->next;
+	temp->next = *stack_b;
+	*stack_b = temp;
+	stack_pos(*stack_b);
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
-	ft_putstr_fd("ss", 2);
+	sa(stack_a);
+	sb(stack_b);
+	stack_pos(*stack_a);
 }
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
@@ -41,7 +55,7 @@ void	pa(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = (*stack_b)->next;
 	temp->next = NULL;
 	push(stack_a, temp);
-	ft_putstr_fd("pa", 2);
+	stack_pos(*stack_a);
 }
 
 void	pb(t_stack **stack_b, t_stack **stack_a)
@@ -54,5 +68,5 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 	*stack_a = (*stack_a)->next;
 	temp->next = NULL;
 	push(stack_b, temp);
-	ft_putstr_fd("pb", 2);
+	stack_pos(*stack_a);
 }

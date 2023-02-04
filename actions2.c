@@ -26,7 +26,7 @@ void	ra(t_stack **stack_a)
 		head = head->next;
 	head->next = temp;
 	temp->next = NULL;
-	ft_putstr_fd("ra", 2);
+	stack_pos(*stack_a);
 }
 
 void	rb(t_stack **stack_b)
@@ -43,11 +43,12 @@ void	rb(t_stack **stack_b)
 		head = head->next;
 	head->next = temp;
 	temp->next = NULL;
-	ft_putstr_fd("ra", 2);
+	stack_pos(*stack_b);
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	ra(stack_a);
 	rb(stack_b);
+	stack_pos(*stack_a);
 }
