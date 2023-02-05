@@ -4,7 +4,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 CC = gcc
 
-SRC = push_swap.c init_stack.c actions.c actions2.c
+SRC = push_swap.c init_stack.c utils.c node_utils.c check_args.c actions.c actions2.c
 
 OBJ = $(SRC:.c=.o)
 
