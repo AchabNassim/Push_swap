@@ -23,30 +23,6 @@ void	print_stack(t_stack *stack)
 	printf("******************************************\n");
 }
 
-void	sort_stack(t_stack **a, t_stack **b)
-{
-	int	i = 1;
-
-	while (*a != NULL)
-	{
-		if ((*a)->rank != i)
-			ra(a);
-		else
-		{
-			i++;
-			pb(b, a);
-		}
-	}
-}
-
-void	sort_a(t_stack **a, t_stack **b)
-{
-	while (*b)
-	{
-		pa(a, b);
-	}
-}
-
 int	main(int ac, char **av)
 {
 	t_stack	*a;

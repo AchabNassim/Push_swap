@@ -36,9 +36,13 @@ int	parse_args(int ac, char **av, t_stack **a, int *stack_size)
 {
 	char	**arr;
 	
-	if (ac < 3)
-		return (1);
 	arr = create_char_array(ac, av);
+	*stack_size = calculate_elements(arr);
+	if (*stack_size < 2)
+	{
+		free_array(arr);
+		exit (1);
+	}
 	if (check_duplicates(arr) == -1 || check_limits(arr) == -1)
 	{
 		free_array(arr);
@@ -46,9 +50,21 @@ int	parse_args(int ac, char **av, t_stack **a, int *stack_size)
 		exit (1);
 	}
 	create_stack(a, arr);
-	*stack_size = calculate_elements(arr);
 	free_array(arr);
 	return (0);
+}
+
+void	node_position(t_stack *stack)
+{
+	int	i;
+
+	i = 1;
+	while (stack != NULL)
+	{
+		stack->stack_pos = i;
+		i++;
+		stack = stack->next;
+	}
 }
 
 int	push(t_stack **stack, t_stack *node)

@@ -39,16 +39,20 @@ void	create_stack(t_stack **stack, char **arr);
 
 // node utils
 t_stack	*ft_lst_new(int numb);
-t_stack	*find_biggest_node(t_stack *stack);
+t_stack	*find_smallest_node(t_stack *stack);
+t_stack	*find_smallest_rank(t_stack *stack);
+void	reinit_rank(t_stack *stack);
 void	node_position(t_stack *stack);
 void	rank_elements(t_stack *stack, int size);
 int     push(t_stack **stack, t_stack *node);
 void	swap(t_stack **stack);
 void	rotate(t_stack **stack);
 void	reverse_rotate(t_stack **stack);
+void	print_stack(t_stack *stack);
 
 // sort functions
 void    sort_elements(t_stack **a, t_stack **b, int stack_size);
+void	small_sort(t_stack **a, t_stack **b, int stack_size);
 void	sort_three_elements(t_stack **a);
 void    sort_five_elements(t_stack **a, t_stack **b, int stack_size);
 
