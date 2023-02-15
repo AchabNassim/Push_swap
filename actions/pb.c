@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pb(t_stack **stack_b, t_stack **stack_a)
 {

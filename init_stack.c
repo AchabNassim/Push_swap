@@ -17,9 +17,11 @@ void	create_stack(t_stack **stack, char **arr)
 {
 	int		i;
 	int		data;
+	int		stack_size;
 	t_stack	*node;
 	
-	i = calculate_elements(arr) - 1;
+	stack_size = calculate_elements(arr);
+	i = stack_size - 1;
 	data = 0;
 	while (i >= 0)
 	{
@@ -27,18 +29,20 @@ void	create_stack(t_stack **stack, char **arr)
 		node = ft_lst_new(data);
 		if (!node)
 			return ;
+		node->stack_size = stack_size;
 		push(stack, node);
 		i--;
 	}
 }
 
-int	parse_args(int ac, char **av, t_stack **a, int *stack_size)
+int	parse_args(int ac, char **av, t_stack **a)
 {
 	char	**arr;
-	
+	int		stack_size;
+
 	arr = create_char_array(ac, av);
-	*stack_size = calculate_elements(arr);
-	if (*stack_size < 2)
+	stack_size = calculate_elements(arr);
+	if (stack_size < 2)
 	{
 		free_array(arr);
 		exit (1);

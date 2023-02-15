@@ -11,6 +11,7 @@ typedef struct s_stack
 	int				data;
 	int				rank;
 	int				stack_pos;
+	int				stack_size;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -34,7 +35,7 @@ int		check_if_sorted(t_stack *stack);
 int		calculate_elements(char **arr);
 char	**create_char_array(int ac, char **av);
 void	free_array(char	**arr);
-int		parse_args(int ac, char **av, t_stack **a, int *stack_size);
+int		parse_args(int ac, char **av, t_stack **a);
 void	create_stack(t_stack **stack, char **arr);
 
 // node utils

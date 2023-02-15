@@ -27,15 +27,13 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int	stack_size;
 
 	a = NULL;
 	b = NULL;
-	stack_size = 0;
-	parse_args(ac, av, &a, &stack_size);
+	parse_args(ac, av, &a);
 	if (check_if_sorted(a) == 0)
 		return (0);
-	sort_elements(&a, &b, stack_size);
+	sort_elements(&a, &b, a->stack_size);
 	print_stack(a);
 	return (0);
 }
