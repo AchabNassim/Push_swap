@@ -16,10 +16,11 @@ $(NAME) : $(OBJ)
 
 clean :
 	@rm -f *.o
-	rm -f libft/*.o
+	@rm -f libft/*.o
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@rm -f libft/libft.a
 	
 re : fclean all
 
