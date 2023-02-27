@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack)
-{
-	printf("******************************************\n");
-	while (stack != NULL)
-	{
-		printf("**\tdata == '%d'\tposition == '%d'\trank == '%d'\t**\n", stack->data, stack->stack_pos, stack->rank);
-		stack = stack->next;
-	}
-	printf("******************************************\n");
-}
+// void	print_stack(t_stack *stack)
+// {
+// 	printf("******************************************\n");
+// 	while (stack != NULL)
+// 	{
+// 		printf("**\tdata == '%d'\tposition == '%d'\trank == '%d'\t**\n", stack->data, stack->stack_pos, stack->rank);
+// 		stack = stack->next;
+// 	}
+// 	printf("******************************************\n");
+// }
 
 int	main(int ac, char **av)
 {
