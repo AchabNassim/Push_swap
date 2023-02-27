@@ -34,6 +34,6 @@ int	main(int ac, char **av)
 	if (check_if_sorted(a) == 0)
 		return (0);
 	sort_elements(&a, &b, a->stack_size);
-	print_stack(a);
+	// print_stack(a);
 	return (0);
 }
